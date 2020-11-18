@@ -1,0 +1,11 @@
+{
+  "name": "mymvvm",
+  "version": "1.0.0",
+  "description": "實作MVVM響應是框架",
+  "main": "MVVM.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}

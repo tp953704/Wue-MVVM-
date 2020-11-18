@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" w-on:click="">
+        Hello World
+        <h3>Title</h3>
+        <p>{{ info }}</p>
+        <div>
+            <button w-on:click="toggleName">Toggle</button>
+            <p w-show="showName">{{ name }}</p>
+        </div>
+    </div>
+    <script type="module">
+         import {MVVM} from './MVVM.js'
+        // var node = document.getElementById('app')
+        // console.log(node.appendChild(node))
+        // const attrs = node.attributes;
+        // [...attrs].forEach((attr)=>{
+        //    console.log(attr.name)
+        //    node.removeAttribute(attr.name);
+        // })
+        const vm = new MVVM({
+            el: '#app',
+            data: {
+                name: 'Johnny',
+                age: 100,
+                showName: true
+            },
+            computed: {
+                info() {
+                    return this.name + ' ' + this.age;
+                }
+            },
+            methods: {
+                toggleName() {
+                    console.log(this.showName)
+                    this.showName = !this.showName;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

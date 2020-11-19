@@ -10,8 +10,10 @@
         Hello World
         <h3>Title</h3>
         <p>{{ info }}</p>
+        <p>{{age}}</p>
         <div>
             <button w-on:click="toggleName">Toggle</button>
+            <button w-on:click="addAge">addAge</button>
             <p w-show="showName">{{ name }}</p>
         </div>
     </div>
@@ -40,6 +42,10 @@
                 toggleName() {
                     console.log(this.showName)
                     this.showName = !this.showName;
+                },
+                addAge(){
+                    console.log(this.age)
+                    this.age+=1;
                 }
             }
         });

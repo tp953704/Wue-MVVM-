@@ -1,10 +1,8 @@
 import {observe} from "./observer.js";
 import {Complier} from "./compiler.js";
-import {Dep} from './dep.js';
 
 export class MVVM{
     constructor(options){
-        this.$Dep = Dep;
         this.$options=options;
         this.$data = this.$options.data;
         this.$compute = this.$options.computed;
@@ -40,7 +38,7 @@ export class MVVM{
     }
     _proxyComputed(key){
         const self = this;
-        const computed = this.computed;
+        const computed = this.$compute;
         if(typeof computed === 'object'){
             Object.defineProperty(self, key, {
                 get: typeof computed[key] === 'function' 
@@ -54,7 +52,7 @@ export class MVVM{
     }
     _proxyMethods(key){
         const self = this;
-        const methods = this.$method;
+        const methods = this.$methods;
         if (typeof methods === 'object') {
             Object.defineProperty(self, key, {
               get: typeof methods[key] === 'function' 

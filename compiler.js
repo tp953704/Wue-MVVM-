@@ -1,4 +1,4 @@
-import { Watcher } from './watcher.js';
+import { Watcher } from './observer.js';
 
 // 需要編譯的元素轉為Fragment 的形式處理
 export class Complier {
